@@ -27,9 +27,9 @@ pipeline {
 
     stage('publish') {
       steps {
-        sh 'echo \'docker login -u "${DOCKER_PASSWORD}"\''
-        sh 'echo \'docker tag extractor-service:"${TAG_VERSION}" mlnrdrgz/extractor-service:"${TAG_VERSION}"\''
-        sh 'echo \'docker push mlnrdrgz/extractor-service:"${TAG_VERSION}"\''
+        sh 'docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"'
+        sh 'docker tag extract-services:"${TAG_VERSION}" "${DOCKER_USER}"/extract-services:"${TAG_VERSION}"'
+        sh 'docker push "${DOCKER_USER}"/extract-services:"${TAG_VERSION}"'
       }
     }
 
