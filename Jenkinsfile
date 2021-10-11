@@ -29,6 +29,7 @@ pipeline {
       steps {
         sh 'echo \'docker login -u "${DOCKER_PASSWORD}"\''
         sh 'echo \'docker tag extractor-service:"${TAG_VERSION}" mlnrdrgz/extractor-service:"${TAG_VERSION}"\''
+        sh 'echo \'docker push mlnrdrgz/extractor-service:"${TAG_VERSION}"\''
       }
     }
 
