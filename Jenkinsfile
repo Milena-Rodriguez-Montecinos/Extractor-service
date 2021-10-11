@@ -15,13 +15,10 @@ pipeline {
 
     stage('package') {
       steps {
-        sh '''docker build -t extractor_service:"${TAG_VERSION}" .
+        sh '''docker build -t extractor_service: .
 '''
       }
     }
 
-  }
-  environment {
-    TAG_VERSION = '1.1'
   }
 }
