@@ -27,8 +27,8 @@ pipeline {
 
     stage('publish') {
       steps {
-        sh 'docker tag extractor_service:"${TAG_VERSION}" "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
-        sh 'docker push "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
+        sh 'echo "docker tag extractor_service:"${TAG_VERSION}" "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
+        sh 'echo "docker push "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
       }
     }
 
