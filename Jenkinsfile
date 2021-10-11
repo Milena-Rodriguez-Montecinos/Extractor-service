@@ -15,7 +15,7 @@ pipeline {
 
     stage('package') {
       steps {
-        sh '''docker build -t extractor_service: .
+        sh '''docker build -t extractor_service:1.0 .
 '''
       }
     }
