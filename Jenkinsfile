@@ -26,7 +26,6 @@ pipeline {
   }
   environment {
     TAG_VERSION = '1.0'
-    DOCKERHUB_CREDENTIALS = credentials(\'pass-Dockerhub\')
-    DOCKER_HUB_USER = 'mlnrdrgz-dockerhub'
+
   }
 }
