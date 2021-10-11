@@ -21,4 +21,7 @@ pipeline {
     }
 
   }
+  environment {
+    TAG_VERSION = '1.1'
+  }
 }
