@@ -28,5 +28,7 @@ pipeline {
   }
   environment {
     TAG_VERSION = '1.0'
+    DOCKER_USER = 'mlnrdrgz'
+    DOCKER_PASSWORD = 'f6705dc3-bee3-46be-9945-33c23835142e'
   }
 }
