@@ -19,6 +19,12 @@ pipeline {
       }
     }
 
+    stage('authentication') {
+      steps {
+        sh 'echo "Hello fucking world"'
+      }
+    }
+
   }
   environment {
     TAG_VERSION = '1.0'
