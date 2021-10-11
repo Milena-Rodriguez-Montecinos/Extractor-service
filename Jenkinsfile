@@ -21,7 +21,7 @@ pipeline {
 
     stage('authentication') {
       steps {
-        sh 'echo "Hello fucking world"'
+        sh 'echo "docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}""'
       }
     }
 
