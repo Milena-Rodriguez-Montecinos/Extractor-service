@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('ExtractorService') {
+    stage('extractor_service') {
       steps {
         sh 'echo "npm install"'
       }
@@ -27,7 +27,6 @@ pipeline {
 
     stage('publish') {
       steps {
-        sh 'docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"'
         sh 'docker tag extractor_service:"${TAG_VERSION}" "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
         sh 'docker push "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
       }
