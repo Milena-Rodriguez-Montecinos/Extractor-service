@@ -28,8 +28,8 @@ pipeline {
     stage('publish') {
       steps {
         sh 'docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"'
-        sh 'docker tag extract-services:"${TAG_VERSION}" "${DOCKER_USER}"/extract-services:"${TAG_VERSION}"'
-        sh 'docker push "${DOCKER_USER}"/extract-services:"${TAG_VERSION}"'
+        sh 'docker tag extractor_service:"${TAG_VERSION}" "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
+        sh 'docker push "${DOCKER_USER}"/extractor_service:"${TAG_VERSION}"'
       }
     }
 
