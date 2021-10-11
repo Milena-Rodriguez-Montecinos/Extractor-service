@@ -4,22 +4,28 @@ pipeline {
     TAG_VERSION = '1.0'
   }
   stages {
-    stage('build') {
-      parallel {
-        stage('build') {
-          steps {
-            sh '''echo "Building" '''
-          }
-        }
-
-        stage('ExtractorService') {
-          steps {
-            sh 'echo "npm install"'
-          }
-        }
-
+    stage('ExtractorService') {
+      steps {
+        sh 'echo "npm install"'
       }
     }
 
+    stage('test') {
+      steps {
+        sh 'echo "npm test"'
+      }
+    }
+
+    stage('package') {
+      steps {
+        sh '''echo "docker build -t extractor_service:"${TAG_VERSION}" ."
+'''
+      }
+    }
+
+  }
+  environment {
+    TAG_VERSION = '1.0'
+    DOCKERHUB_CREDENTIALS = credentials('pass-Dockerhub')
   }
 }
