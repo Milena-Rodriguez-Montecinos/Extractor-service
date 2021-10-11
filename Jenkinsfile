@@ -25,6 +25,12 @@ pipeline {
       }
     }
 
+    stage('publish') {
+      steps {
+        sh 'echo \'docker login -u "${DOCKER_PASSWORD}"\''
+      }
+    }
+
   }
   environment {
     TAG_VERSION = '1.0'
