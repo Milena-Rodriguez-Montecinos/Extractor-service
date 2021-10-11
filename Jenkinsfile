@@ -1,8 +1,5 @@
 pipeline {
   agent any
-   environment {
-    TAG_VERSION = '1.0'
-  }
   stages {
     stage('ExtractorService') {
       steps {
@@ -18,9 +15,12 @@ pipeline {
 
     stage('package') {
       steps {
-        sh '''echo "docker build -t extractor_service:"${TAG_VERSION}" ." '''
+        sh 'echo "docker build -t extractor_service:"${TAG_VERSION}" ." '
       }
     }
 
+  }
+  environment {
+    TAG_VERSION = '1.0'
   }
 }
