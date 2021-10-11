@@ -1,27 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
-      parallel {
-        stage('build') {
-          steps {
-            sh '''echo "npm install"
-'''
-          }
-        }
-
-        stage('ExtractorService') {
-          steps {
-            sh 'echo "npm install"'
-          }
-        }
-
+    stage('ExtractorService') {
+      steps {
+        sh 'echo "npm install"'
       }
     }
 
-    stage('test') {
+    stage('test-ExtractorService') {
       steps {
-        sh 'echo "Testing"'
+        sh 'echo "npm test"'
       }
     }
 
