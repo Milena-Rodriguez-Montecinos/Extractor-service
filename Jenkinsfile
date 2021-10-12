@@ -7,9 +7,21 @@ pipeline {
       }
     }
 
-    stage('test') {
+    stage('Test') {
+      post {
+        success {
+          publishHTML(allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'Extractor-service/coverage/lcov-report/', reportFiles: 'index.html', reportName: 'Extractor service report')
+        }
+        always {
+          archiveArtifacts 'Extractor-service/test-report.html'
+        }
+
+      }
+
       steps {
-        sh 'echo "npm test"'
+        dir(path: './Extractor-service') {
+          sh 'npm test'
+        }
       }
     }
 
